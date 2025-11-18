@@ -1,0 +1,240 @@
+<!--
+Senthil's Birthday Website
+File: index.html
+Instructions:
+1) Put your photos in a folder named `images/` next to this file.
+   Name them: photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg, photo5.jpg, photo6.jpg
+   (You can change filenames in the HTML if you prefer.)
+2) Open this file in a browser to preview. To publish live: deploy the entire folder to Netlify or GitHub Pages.
+3) This single-file site contains all styles and scripts. If you want me to export separate assets or tweak content, tell me.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday Senthil 💙</title>
+  <style>
+    :root{
+      --bg: #e8f3ff;
+      --blue-1: #3b82f6;
+      --blue-2: #60a5fa;
+      --accent: #09357a;
+      --glass: rgba(255,255,255,0.7);
+      --font-sans: 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;font-family:var(--font-sans);background:linear-gradient(180deg,var(--bg),#d7ecff);color:var(--accent);display:flex;align-items:center;justify-content:center;padding:30px;
+      overflow-y:auto;
+    }
+
+    .stage{width:100%;max-width:980px;margin:20px auto}
+
+    /* Top Hero */
+    .hero{background:linear-gradient(135deg,rgba(59,130,246,0.07),rgba(96,165,250,0.06));border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(13,42,102,0.08);position:relative;overflow:visible}
+    .hero-inner{display:flex;gap:24px;align-items:center}
+    .portrait{width:160px;height:160px;border-radius:20px;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));display:flex;align-items:center;justify-content:center;font-size:28px;color:white;flex:0 0 160px;box-shadow:0 6px 20px rgba(59,130,246,0.18)}
+    .portrait img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+
+    .greeting{flex:1}
+    .greeting h1{margin:0;font-size:34px;line-height:1;color:var(--accent)}
+    .greeting p{margin:10px 0 18px;color:#0b2b5f;opacity:0.95;font-size:16px}
+
+    .reveal-btn{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));border:none;color:white;padding:12px 18px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(96,165,250,0.22);transition:transform .18s}
+    .reveal-btn:active{transform:translateY(2px)}
+
+    /* Polaroid gallery */
+    .gallery{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+    .polaroid{background:white;border-radius:14px;padding:12px 12px 20px;display:flex;flex-direction:column;align-items:center;box-shadow:0 10px 30px rgba(7,45,90,0.08);transform-origin:center;position:relative}
+    .polaroid .photo{width:100%;height:150px;border-radius:8px;background:#ddd;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .polaroid img{width:100%;height:100%;object-fit:cover;display:block}
+    .cap{margin-top:10px;font-size:13px;color:#18406d}
+
+    /* Tilt/rotate variations for polaroids */
+    .polaroid:nth-child(4n){transform:rotate(-4deg)}
+    .polaroid:nth-child(4n+1){transform:rotate(3.5deg)}
+    .polaroid:nth-child(4n+2){transform:rotate(-2deg)}
+    .polaroid:nth-child(4n+3){transform:rotate(2.7deg)}
+
+    /* Hover lift */
+    .polaroid:hover{transform:translateY(-8px) rotate(0deg) scale(1.02)}
+
+    /* Message Modal */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,22,48,0.35);opacity:0;pointer-events:none;transition:opacity .35s}
+    .modal.open{opacity:1;pointer-events:auto}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.98),var(--glass));border-radius:18px;padding:28px;max-width:720px;box-shadow:0 20px 60px rgba(8,36,90,0.2);text-align:center;position:relative}
+    .card h2{margin:0;font-size:28px;color:var(--accent)}
+    .card .message{margin-top:14px;font-size:17px;color:#072047;line-height:1.5}
+    .close{margin-top:18px;background:#fff;border:1px solid rgba(7,45,90,0.08);padding:10px 14px;border-radius:10px;cursor:pointer}
+
+    /* Hearts animation */
+    .hearts{position:fixed;pointer-events:none;inset:0;overflow:hidden}
+    .heart{position:absolute;width:22px;height:22px;background:linear-gradient(45deg,#ff7bb1,#ff4382);transform:rotate(45deg);border-radius:4px;opacity:0.95}
+    .heart:before,.heart:after{content:'';position:absolute;background:inherit;border-radius:50%}
+    .heart:before{width:22px;height:22px;left:-11px;top:0}
+    .heart:after{width:22px;height:22px;left:0;top:-11px}
+
+    /* Sparkles */
+    .sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,white,#cfe7ff);opacity:0.95}
+
+    /* small responsive tweaks */
+    @media (max-width:640px){
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      .portrait{width:120px;height:120px;flex:0 0 120px}
+      .greeting h1{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="portrait" id="portrait">
+          <!-- Replace with image by dropping in images/photo1.jpg or change src via JS -->
+          <img src="images/photo1.jpg" alt="Senthil" onerror="this.style.display='none'"/>
+        </div>
+        <div class="greeting">
+          <h1>Happy Birthday, <strong>Senthil</strong> 💙</h1>
+          <p id="short-msg">A little digital surprise filled with memories, love and tiny magic — just for you.</p>
+          <div>
+            <button class="reveal-btn" id="openBtn">Open your surprise ✨</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery" id="gallery">
+        <!-- Polaroid items (images/photo2..photo6). Replace or add more in images/ folder -->
+        <div class="polaroid"><div class="photo"><img src="images/photo2.jpg" alt="photo"></div><div class="cap">Us laughing</div></div>
+        <div class="polaroid"><div class="photo"><img src="images/photo3.jpg" alt="photo"></div><div class="cap">A cosy day</div></div>
+        <div class="polaroid"><div class="photo"><img src="images/photo4.jpg" alt="photo"></div><div class="cap">That trip</div></div>
+        <div class="polaroid"><div class="photo"><img src="images/photo5.jpg" alt="photo"></div><div class="cap">Candle night</div></div>
+        <div class="polaroid"><div class="photo"><img src="images/photo6.jpg" alt="photo"></div><div class="cap">Memories</div></div>
+        <div class="polaroid"><div class="photo"><img src="images/photo7.jpg" alt="photo"></div><div class="cap">More smiles</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- modal message -->
+  <div class="modal" id="modal">
+    <div class="card">
+      <h2>For Senthil, with all my heart 💙</h2>
+      <div class="message" id="message">
+        <!-- Romantic message injected by JS -->
+      </div>
+      <button class="close" id="closeBtn">Close</button>
+    </div>
+  </div>
+
+  <!-- animated hearts container -->
+  <div class="hearts" id="hearts"></div>
+
+  <script>
+    // --- Romantic message (customized) ---
+    const romanticMessage = `
+      Happy Birthday, Senthil —
+      Every day with you feels like a warm sunrise: gentle, bright and full of promise.
+      You laugh like the world is made of small, perfect moments, and you hold my heart with care I never knew I needed.
+      Today I celebrate you — your kindness, your smile, your quiet strength — and every little thing that makes you, you.
+      I love you more than words can say. Here’s to more memories, secret smiles, and late-night talks.
+      Always yours. 💙
+    `;
+
+    // DOM hooks
+    const modal = document.getElementById('modal');
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const messageEl = document.getElementById('message');
+
+    messageEl.textContent = romanticMessage;
+
+    openBtn.addEventListener('click', ()=>{
+      modal.classList.add('open');
+      launchHearts();
+      launchSparkles();
+      gentleShakePortrait();
+    });
+    closeBtn.addEventListener('click', ()=>{
+      modal.classList.remove('open');
+      removeAnimatedElements();
+    });
+
+    // create floating hearts
+    const heartsContainer = document.getElementById('hearts');
+    let heartInterval;
+    function launchHearts(){
+      heartInterval = setInterval(()=>{
+        const h = document.createElement('div');
+        h.className = 'heart';
+        const size = 12 + Math.random()*22;
+        h.style.width = h.style.height = size + 'px';
+        h.style.left = Math.random()*100 + '%';
+        h.style.bottom = '-30px';
+        h.style.opacity = 0.95 - Math.random()*0.3;
+        h.style.transform = `rotate(${Math.random()*40 - 20}deg)`;
+        heartsContainer.appendChild(h);
+        const rise = 3500 + Math.random()*3000;
+        h.animate([
+          {transform: `translateY(0) scale(1)`, opacity:1, offset:0},
+          {transform: `translateY(-${150 + Math.random()*300}px) scale(.9)`, opacity:0.9, offset:0.6},
+          {transform: `translateY(-${400 + Math.random()*800}px) scale(.6)`, opacity:0, offset:1}
+        ],{duration:rise, easing:'cubic-bezier(.2,.8,.2,1)'});
+        setTimeout(()=>{ h.remove(); }, rise+100);
+      }, 220);
+    }
+    function launchSparkles(){
+      for(let i=0;i<18;i++){
+        const s = document.createElement('div');
+        s.className='sparkle';
+        s.style.left = Math.random()*80 + '%';
+        s.style.top = Math.random()*60 + '%';
+        s.style.opacity = 0.9;
+        s.style.transform = 'scale(0)';
+        heartsContainer.appendChild(s);
+        s.animate([{transform:'scale(0)', opacity:0},{transform:'scale(1.1)', opacity:1},{transform:'scale(0.2)',opacity:0}],{duration:1200 + Math.random()*900, delay: Math.random()*400});
+        setTimeout(()=>s.remove(),2600);
+      }
+    }
+    function gentleShakePortrait(){
+      const p = document.getElementById('portrait');
+      p.animate([
+        {transform:'translateY(0) rotate(0deg)'},
+        {transform:'translateY(-6px) rotate(-2deg)'},
+        {transform:'translateY(0) rotate(1deg)'}
+      ],{duration:750, iterations:3, easing:'ease-out'});
+    }
+    function removeAnimatedElements(){
+      clearInterval(heartInterval);
+      // remove any leftover hearts/sparkles quickly
+      document.querySelectorAll('.heart, .sparkle').forEach(n=>n.remove());
+    }
+
+    // Small touch: clicking a polaroid opens a full-size overlay
+    document.getElementById('gallery').addEventListener('click',(e)=>{
+      const img = e.target.closest('.polaroid')?.querySelector('img');
+      if(!img) return;
+      openImageOverlay(img.src, img.alt||'photo');
+    });
+
+    function openImageOverlay(src, alt){
+      const overlay = document.createElement('div');
+      overlay.style.position='fixed';overlay.style.inset=0;overlay.style.display='flex';overlay.style.alignItems='center';overlay.style.justifyContent='center';overlay.style.background='rgba(6,18,40,0.6)';overlay.style.zIndex=9999;
+      const big = document.createElement('img');big.src=src;big.alt=alt;big.style.maxWidth='92%';big.style.maxHeight='92%';big.style.borderRadius='10px';big.style.boxShadow='0 28px 60px rgba(3,22,66,0.6)';
+      overlay.appendChild(big);
+      overlay.addEventListener('click',()=>overlay.remove());
+      document.body.appendChild(overlay);
+    }
+
+    // Accessibility: allow Esc to close modal
+    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape') { modal.classList.remove('open'); removeAnimatedElements(); } });
+
+    // If images are missing, optionally show initials in portrait
+    document.querySelectorAll('.portrait img').forEach(img=>{
+      img.addEventListener('error', ()=>{
+        const p = img.parentElement; img.remove(); p.textContent = 'S'; p.style.fontSize='44px'; p.style.fontWeight='700';
+      });
+    });
+  </script>
+</body>
+</html>
