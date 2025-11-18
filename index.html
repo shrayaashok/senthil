@@ -3,73 +3,82 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Enanga — A Magical Birthday ✨</title>
+<title>Enanga 💙 — Happy Birthday ✨</title>
 <style>
   :root{
-    --night-1: #030821;
-    --night-2: #06173a;
-    --glow: rgba(255,190,120,0.12);
-    --accent: #89d4ff;
-    --warm: #ffcfa8;
-    --maxwidth: 1100px;
+    --night-1:#021028;
+    --night-2:#052b52;
+    --ground:#061428;
+    --blue-heart:#3ea2ff;
+    --soft-blue: #9fd7ff;
+    --warm:#ffcaa6;
+    --maxw:1120px;
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:
-    radial-gradient(1200px 600px at 80% 10%, rgba(138,214,255,0.04), transparent 6%),
-    linear-gradient(180deg,var(--night-1) 0%, var(--night-2) 70%, #001428 100%);
-    color:#e6f0ff; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
-  .wrap{max-width:var(--maxwidth);margin:20px auto;padding:18px}
-  header{display:flex;align-items:center;gap:16px}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;background:
+    radial-gradient(900px 400px at 70% 10%, rgba(159,215,255,0.03), transparent 5%),
+    linear-gradient(180deg,var(--night-1), var(--night-2)); color:#eaf6ff; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--maxw);margin:18px auto;padding:18px}
+  header{display:flex;align-items:center;gap:12px}
   h1{margin:0;font-size:28px}
-  p.lead{margin:4px 0 0;color:#cfe9ff;opacity:.95}
+  .subtitle{color:#cfeaff;opacity:.9;font-size:13px;margin-top:4px}
 
-/* starfield & shooting stars */
-  .sky{position:relative;height:68vh;border-radius:12px;overflow:hidden;margin-top:14px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+/* sky */
+  .sky{position:relative;height:70vh;border-radius:12px;overflow:hidden;margin-top:14px;box-shadow:0 30px 90px rgba(0,0,0,0.6)}
   .stars{position:absolute;inset:0;background-image:
     radial-gradient(white 1px, transparent 1px), radial-gradient(white 1px, transparent 1px);
-    background-size: 120px 120px, 200px 200px; background-position: 10% 20%, 70% 60%; opacity:.12; pointer-events:none;}
-  .shoot{position:absolute;width:3px;height:60px;background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.02));opacity:0;transform:rotate(-25deg);filter:blur(0.6px)}
-  @keyframes shoot {0%{opacity:0; transform: translateX(-20vw) translateY(-10vh) rotate(-25deg)}10%{opacity:1}100%{opacity:0; transform: translateX(60vw) translateY(-60vh) rotate(-25deg)}}
+    background-size: 120px 120px, 200px 200px; background-position: 2% 12%, 70% 50%; opacity:.12; pointer-events:none;}
+  .small-stars{position:absolute;inset:0;background-image:
+    radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px);
+    background-size: 60px 60px;opacity:.06;pointer-events:none;}
+  .shoot{position:absolute;width:3px;height:60px;background:linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.02));opacity:0;transform:rotate(-25deg);filter:blur(.4px)}
 
 /* ground silhouette */
-  .ground{position:absolute;left:0;right:0;bottom:0;height:26%;pointer-events:none}
+  .ground{position:absolute;left:0;right:0;bottom:0;height:24%;pointer-events:none}
   .land{width:100%;height:100%;display:flex;align-items:flex-end;justify-content:center;position:relative}
   .land svg{position:absolute;bottom:0;left:0;width:100%;height:100%}
 
-/* candles container */
+/* lanterns container */
   .lanterns{position:absolute;left:0;right:0;bottom:16px;height:62%;pointer-events:auto}
 
-/* lantern styles */
-  .lantern{position:absolute;bottom:8px;width:120px;height:170px;border-radius:20px;transform-origin:center bottom;display:flex;flex-direction:column;align-items:center;cursor:pointer}
-  .glass{width:86px;height:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 30px rgba(0,0,0,0.6), inset 0 2px 10px rgba(255,255,255,0.02)}
-  .glass img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.98) saturate(1.02)}
-  .flameholder{width:28px;height:38px;margin-top:8px;border-radius:8px;background:linear-gradient(180deg,#3a2313,#24130b)}
-  .flame{position:absolute;bottom:98px;width:12px;height:16px;border-radius:50%;left:50%;transform:translateX(-50%);background:radial-gradient(circle at 40% 30%, #fff 0%, #ffdca8 12%, #ff9a4d 45%, transparent 60%);box-shadow:0 0 14px rgba(255,150,80,0.5);animation:flame 1100ms infinite}
-  @keyframes flame{0%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-6px) scaleY(1.06)}100%{transform:translateX(-50%) translateY(0)}}
+/* lantern/candle shape */
+  .lantern{position:absolute;bottom:8px;width:120px;height:170px;border-radius:18px;transform-origin:center bottom;display:flex;flex-direction:column;align-items:center;cursor:pointer}
+  .glass{width:86px;height:120px;border-radius:12px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,0.04);box-shadow:0 8px 26px rgba(0,0,0,0.65)}
+  .glass img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(0.98) saturate(1.02)}
+  .candle-base{width:36px;height:40px;margin-top:8px;border-radius:8px;background:linear-gradient(180deg,#082234,#031621);position:relative}
+  /* Blue flame style (style B) */
+  .blue-flame{
+    position:absolute;left:50%;transform:translateX(-50%);bottom:6px;width:10px;height:20px;border-radius:50%;
+    background: radial-gradient(circle at 35% 25%, #ffffff 0%, #cfe9ff 6%, #8fd1ff 18%, rgba(74,170,255,0.95) 40%, rgba(40,120,255,0.6) 60%, transparent 70%);
+    box-shadow:0 0 20px rgba(62,162,255,0.26), 0 0 40px rgba(62,162,255,0.12);
+    animation:blueflame 900ms linear infinite;
+  }
+  @keyframes blueflame{
+    0%{transform:translateX(-50%) translateY(0) scaleY(1)}
+    50%{transform:translateX(-50%) translateY(-6px) scaleY(1.08)}
+    100%{transform:translateX(-50%) translateY(0) scaleY(1)}
+  }
+  .candle-glow{position:absolute;left:50%;transform:translateX(-50%);bottom:36px;width:68px;height:68px;border-radius:50%;background:radial-gradient(circle, rgba(62,162,255,0.18), rgba(62,162,255,0.04) 40%, transparent 60%);filter:blur(10px);opacity:0;transition:opacity .25s}
 
-/* candle glow */
-  .glow{position:absolute;left:50%;transform:translateX(-50%);bottom:72px;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle, rgba(255,200,150,0.22), rgba(255,160,100,0.06) 40%, transparent 60%);filter:blur(12px);opacity:0;transition:opacity .25s}
-
-/* rising animation */
+/* rise animation */
   @keyframes rise {0%{opacity:0;transform:translateY(0) scale(.98) rotate(0deg)}10%{opacity:1}100%{opacity:1;transform:translateY(-120vh) scale(.82) rotate(var(--rot))}}
 
 /* hearts & sparkles */
   .hearts{position:absolute;inset:0;pointer-events:none}
-  .heart{position:absolute;width:24px;height:24px;transform:rotate(45deg);background:linear-gradient(45deg,#ff7bb1,#ff4382);border-radius:4px;opacity:0.9}
+  .heart{position:absolute;width:22px;height:22px;transform:rotate(45deg);background:linear-gradient(45deg,var(--blue-heart), #7fd0ff);border-radius:4px;opacity:0.95}
   .spark{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,white,#cfe7ff);opacity:0.95}
 
-/* message area */
-  .card{position:relative;margin-top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border-radius:14px;padding:14px;display:flex;gap:14px;align-items:center}
-  .msg-box{flex:1}
-  .msg{font-size:16px;color:#f6f8ff;line-height:1.5}
-  .controls{display:flex;gap:8px;align-items:center}
+/* message card */
+  .card{position:relative;margin-top:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:12px;display:flex;gap:12px;align-items:center}
+  .msg{font-size:15px;color:#f5fbff;line-height:1.5}
 
-/* final surprise button */
-  .final-btn{margin-left:auto;background:linear-gradient(90deg,#ffb57a,#ff7aa2);border:none;padding:10px 14px;border-radius:12px;color:#281218;font-weight:800;cursor:pointer;box-shadow:0 8px 30px rgba(255,120,140,0.12)}
+/* final surprise */
 
-/* responsive tweaks */
+  .final-btn{margin-left:auto;background:linear-gradient(90deg,#9fd7ff,#3ea2ff);border:none;padding:10px 12px;border-radius:12px;color:#031b2a;font-weight:800;cursor:pointer;box-shadow:0 8px 30px rgba(62,162,255,0.12)}
+
+/* responsive */
   @media (max-width:720px){
-    .lantern{width:88px;height:136px}
+    .lantern{width:92px;height:136px}
     .glass{width:64px;height:96px}
   }
 </style>
@@ -78,69 +87,86 @@
   <div class="wrap">
     <header>
       <div>
-        <h1>Enanga — Candle-Light Memories</h1>
-        <p class="lead">Night of stars, rising candles, and little love surprises. Click a candle to view the photo, press Release to set them free.</p>
+        <h1>Enanga <span style="color:var(--blue-heart)">💙</span> — Candle-Light Memories</h1>
+        <div class="subtitle">Cute, silly, and full of blue-heart love. Click a candle to view a photo or press Release to float them up.</div>
       </div>
       <div style="margin-left:auto;display:flex;gap:10px;align-items:center">
         <button id="releaseBtn" class="final-btn">Release Candles ✨</button>
-        <button id="playMusic" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;cursor:pointer">Play Music ♪</button>
+        <button id="surpriseBtn" class="final-btn" style="background:linear-gradient(90deg,#ffd6e0,#a18cd1);">Open Surprise 💌</button>
       </div>
     </header>
 
     <section class="sky" id="sky">
       <div class="stars"></div>
-      <!-- some shooting stars -->
+      <div class="small-stars"></div>
       <div id="shoots"></div>
 
       <div class="lanterns" id="lanterns"></div>
-
       <div class="hearts" id="hearts"></div>
 
       <div class="ground">
         <div class="land">
-          <svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,120 C120,80 240,140 360,100 C480,60 600,120 720,90 C840,60 960,120 1080,92 C1100,88 1200,80 1200,80 L1200,160 L0,160 Z" fill="rgba(3,8,20,0.95)"></path></svg>
+          <svg viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M0,120 C120,80 240,140 360,100 C480,60 600,120 720,90 C840,60 960,120 1080,92 C1100,88 1200,80 1200,80 L1200,160 L0,160 Z" fill="rgba(2,6,12,0.95)"></path></svg>
         </div>
       </div>
     </section>
 
     <div class="card" aria-live="polite">
-      <div class="msg-box">
-        <div id="message" class="msg">Click "Release Candles" — little lights are waiting to carry your memories to the sky.</div>
+      <div class="msg" id="message">
+        Enanga <span style="color:var(--blue-heart)">💙</span> — Press "Release Candles" to send our silly little lights to the stars.
       </div>
-      <div class="controls">
+      <div style="margin-left:auto;display:flex;gap:8px">
         <button id="nextMsg" style="background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:#fff;cursor:pointer">Next message</button>
-        <button id="surpriseBtn" class="final-btn">Open Surprise 💌</button>
       </div>
     </div>
   </div>
 
-  <!-- final surprise modal -->
+  <!-- surprise modal -->
   <div id="surpriseModal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999">
-    <div style="background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));padding:24px;border-radius:14px;max-width:720px;color:#fff;box-shadow:0 30px 90px rgba(0,0,0,0.7);text-align:center">
-      <h2 style="margin:0 0 10px">Happy Birthday, Enanga 💜</h2>
-      <p style="margin:8px 0 16px;line-height:1.6;color:#f3f6ff">You are my quiet happiness — the glow that warms my every day. Today, I release these little lights as tiny letters of love; each one carries a memory, a laugh, a promise. I love you more than words. — Always yours.</p>
+    <div style="background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;max-width:720px;color:#fff;box-shadow:0 30px 90px rgba(0,0,0,0.7);text-align:center">
+      <h2 style="margin:0 0 10px">A little love for you, Enanga <span style="color:var(--blue-heart)">💙</span></h2>
+      <p style="margin:8px 0 16px;line-height:1.6;color:#f3f8ff">You're my favourite notification — every time you smile, my heart does a happy dance. I made this silly sky just to see you smile. Happy birthday, my blue-heart! 💙</p>
       <button id="closeSurprise" style="background:linear-gradient(90deg,#ffd6e0,#a18cd1);border:none;padding:10px 14px;border-radius:10px;color:#2b1222;font-weight:800;cursor:pointer">Close</button>
     </div>
   </div>
 
   <!-- audio (optional) -->
-  <!-- Put your mp3 at music/background.mp3 or change src -->
   <audio id="bgMusic" loop>
     <source src="music/background.mp3" type="audio/mpeg">
-    <!-- If you don't want music, remove this whole <audio> block -->
   </audio>
 
 <script>
 /* CONFIG */
-const MAX_PHOTOS = 12; // will attempt to load up to this many images named photo1..photo12
+const MAX_PHOTOS = 12;
 const photos = [];
 for(let i=1;i<=MAX_PHOTOS;i++) photos.push(`images/photo${i}.jpg`);
 
-/* helpers */
+/* funny messages (10) — each begins with Enanga 💙 */
+const messages = [
+  "Enanga 💙 — You stole my hoodie and my heart. Not returning either. 😂",
+  "Enanga 💙 — If cuteness was a crime, you'd be life-imprisoned. I volunteer as your lawyer. 😍",
+  "Enanga 💙 — You are my favourite notification and my daily reason to smile. (Also, stop stealing fries!) 🍟",
+  "Enanga 💙 — I love you more than my morning tea. And yes, that's serious. ☕️❤️",
+  "Enanga 💙 — You make bad days better — and good days wildly suspicious of how lucky I am. 😭💙",
+  "Enanga 💙 — Promise: I’ll always laugh at your jokes (and pretend they're funnier). 😂💙",
+  "Enanga 💙 — If we had a duo name, it would be 'Cute Chaos'. Acceptable? 😝",
+  "Enanga 💙 — I kept one pocket open for your hand — please use it forever. 🤝",
+  "Enanga 💙 — Your smile is my favorite filter. No app needed. 📸💙",
+  "Enanga 💙 — Happy birthday! Today I celebrate you, your silly jokes, and your big heart. 💙🎉"
+];
+
+let msgIndex = 0;
+const msgEl = document.getElementById('message');
+document.getElementById('nextMsg').addEventListener('click', ()=>{
+  msgIndex = (msgIndex + 1) % messages.length;
+  msgEl.textContent = messages[msgIndex];
+});
+
+/* preload images */
 function preload(list, cb){
-  let done = 0, found = [];
-  list.forEach((u)=> {
-    const img = new Image();
+  let done=0, found=[];
+  list.forEach((u)=>{
+    const img=new Image();
     img.onload = ()=>{ found.push(u); done++; if(done===list.length) cb(found); };
     img.onerror = ()=>{ done++; if(done===list.length) cb(found); };
     img.src = u;
@@ -149,132 +175,117 @@ function preload(list, cb){
 
 /* build lanterns */
 const lanternsEl = document.getElementById('lanterns');
-function build(l){
-  lanternsEl.innerHTML = '';
-  if(l.length===0){
-    lanternsEl.innerHTML = `<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:28px;color:#cfe9ff;padding:10px;background:rgba(0,0,0,0.2);border-radius:8px">No images found — add photo1.jpg ...</div>`;
+function build(imageList){
+  lanternsEl.innerHTML='';
+  if(imageList.length===0){
+    lanternsEl.innerHTML = `<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:28px;color:#cfe9ff;padding:10px;background:rgba(0,0,0,0.18);border-radius:8px">No images found. Put photo1.jpg ... photo6.jpg in images/</div>`;
     return;
   }
-  const count = l.length;
-  l.forEach((src, idx)=>{
+  const count = imageList.length;
+  imageList.forEach((src, idx)=>{
     const el = document.createElement('div');
     el.className = 'lantern';
-    // position across width (8%..92%)
     const leftPct = 8 + (idx/(count-1 || 1))*84;
     const jitter = (Math.random()*14)-7;
     el.style.left = `calc(${leftPct}% + ${jitter}px)`;
-    // random rotation variable
-    const rot = (Math.random()*22 - 11).toFixed(2) + 'deg';
+    const rot = (Math.random()*24 - 12).toFixed(2) + 'deg';
     el.style.setProperty('--rot', rot);
-    el.innerHTML = `<div class="glow" aria-hidden="true"></div><div class="glass"><img src="${src}" alt="memory"></div><div class="flame" aria-hidden="true"></div><div class="flameholder" aria-hidden="true"></div>`;
+    el.innerHTML = `<div class="candle-glow" aria-hidden="true"></div>
+      <div class="glass"><img src="${src}" alt="memory"></div>
+      <div class="candle-base" aria-hidden="true"><div class="blue-flame"></div></div>
+    `;
     el.addEventListener('click', (e)=>{ e.stopPropagation(); openOverlay(src); });
     lanternsEl.appendChild(el);
-    // gentle waiting glow
-    const g = el.querySelector('.glow');
-    setTimeout(()=> g.style.opacity = 0.92, 150 + idx*60);
+    // initial glow
+    const g = el.querySelector('.candle-glow');
+    setTimeout(()=> g.style.opacity = 0.9, 180 + idx*70);
   });
 }
 
 /* release animation */
-function release(list){
+function release(){
   const nodes = Array.from(document.querySelectorAll('.lantern'));
   if(!nodes.length) return;
   nodes.forEach((n,i)=>{
     const duration = 9000 + Math.random()*7000;
     const delay = i * 650 + Math.random()*300;
-    // gentle glow animation
-    const glow = n.querySelector('.glow');
-    glow.animate([{opacity:0.92, transform:'scale(1)'},{opacity:0.15, transform:'scale(1.6)'}], {duration:duration, fill:'forwards'});
-    // rise using CSS keyframe
+    const glow = n.querySelector('.candle-glow');
+    glow.animate([{opacity:0.9, transform:'scale(1)'},{opacity:0.12, transform:'scale(1.6)'}], {duration:duration, fill:'forwards'});
     n.style.animation = `rise ${duration}ms linear ${delay}ms forwards`;
-    // slight horizontal sway via Web Animations
     n.animate([
       { transform: `translateY(0) rotate(0deg)` },
       { transform: `translateY(-24vh) rotate(${(Math.random()*8-4).toFixed(2)}deg)` },
       { transform: `translateY(-48vh) rotate(${(Math.random()*-8+4).toFixed(2)}deg)` },
       { transform: `translateY(-120vh) rotate(${n.style.getPropertyValue('--rot')})` }
     ], { duration: duration + 300, delay: delay, fill:'forwards', easing:'linear' });
-    // fade flame
-    const flame = n.querySelector('.flame');
-    flame.animate([{opacity:1},{opacity:0, transform:'translateY(-30px) scale(.92)'}], {duration: duration, delay: delay, fill:'forwards'});
-    // remove after
-    setTimeout(()=>{ try{ n.remove(); }catch(e){} }, duration + delay + 350);
+    // remove after done
+    setTimeout(()=>{ try{ n.remove(); }catch(e){} }, duration + delay + 300);
   });
-  // also start hearts & sparkles
   startHearts();
+  burstMessages();
 }
 
-/* overlay */
+/* overlay large */
 function openOverlay(src){
-  const o = document.createElement('div');
-  o.style.position='fixed'; o.style.inset=0; o.style.background='rgba(1,6,14,0.86)'; o.style.display='flex'; o.style.alignItems='center'; o.style.justifyContent='center'; o.style.zIndex=9999; o.style.cursor='zoom-out';
-  const img = document.createElement('img'); img.src=src; img.style.maxWidth='92%'; img.style.maxHeight='92%'; img.style.borderRadius='12px'; img.style.boxShadow='0 40px 120px rgba(0,0,0,0.9)';
-  o.appendChild(img);
-  o.addEventListener('click', ()=> o.remove());
-  document.body.appendChild(o);
+  const overlay = document.createElement('div');
+  overlay.style.position='fixed'; overlay.style.inset=0; overlay.style.background='rgba(1,6,14,0.92)'; overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center'; overlay.style.zIndex=9999; overlay.style.cursor='zoom-out';
+  const img = document.createElement('img'); img.src = src; img.style.maxWidth='92%'; img.style.maxHeight='92%'; img.style.borderRadius='12px'; img.style.boxShadow='0 40px 120px rgba(0,0,0,0.9)';
+  overlay.appendChild(img);
+  overlay.addEventListener('click', ()=> overlay.remove());
+  document.body.appendChild(overlay);
 }
 
 /* hearts & sparkles */
 const heartsEl = document.getElementById('hearts');
-let heartInterval;
 function startHearts(){
-  // emit short shower of hearts & sparkles
-  const colors = ['#ff7bb1','#ffd088','#c9a7ff','#89d4ff'];
-  let emit = 0;
-  heartInterval = setInterval(()=>{
+  const colors = ['#66baff', '#9fd7ff', '#3ea2ff', '#cfe9ff'];
+  let emit=0;
+  const interval = setInterval(()=>{
     emit++;
-    const h = document.createElement('div');
-    h.className='heart';
-    const size = 10 + Math.random()*26;
-    h.style.width = h.style.height = size+'px';
-    h.style.left = (20 + Math.random()*60) + '%';
-    h.style.bottom = (10 + Math.random()*6) + '%';
-    h.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random()*colors.length)]}, #ff6b9a)`;
+    const h = document.createElement('div'); h.className='heart';
+    const size = 10 + Math.random()*24;
+    h.style.width = h.style.height = size + 'px';
+    h.style.left = (10 + Math.random()*80) + '%';
+    h.style.top = (30 + Math.random()*50) + '%';
+    h.style.background = `linear-gradient(45deg, ${colors[Math.floor(Math.random()*colors.length)]}, #7fd0ff)`;
     heartsEl.appendChild(h);
-    h.animate([{transform:'translateY(0) rotate(45deg)', opacity:1},{transform:'translateY(-40vh) rotate(45deg)', opacity:0}], {duration:3000 + Math.random()*2000, easing:'cubic-bezier(.2,.8,.2,1)'});
-    setTimeout(()=> h.remove(), 3800);
-    // sparkles
-    if(Math.random() > 0.5){
-      const s = document.createElement('div'); s.className='spark'; s.style.left = (20 + Math.random()*60) + '%'; s.style.bottom = (10 + Math.random()*20) + '%'; heartsEl.appendChild(s);
-      s.animate([{transform:'scale(0)', opacity:0},{transform:'scale(1.2)', opacity:1},{transform:'scale(.2)', opacity:0}], {duration:1200 + Math.random()*800});
-      setTimeout(()=> s.remove(), 1600);
+    h.animate([{transform:'translateY(0) rotate(45deg)', opacity:1},{transform:'translateY(-40vh) rotate(45deg)', opacity:0}], {duration:3200 + Math.random()*1600, easing:'cubic-bezier(.2,.8,.2,1)'});
+    setTimeout(()=> h.remove(), 3600);
+    // sparkles sometimes
+    if(Math.random()>0.5){
+      const s = document.createElement('div'); s.className='spark'; s.style.left = (10 + Math.random()*80) + '%'; s.style.top = (30 + Math.random()*50) + '%'; heartsEl.appendChild(s);
+      s.animate([{transform:'scale(0)', opacity:0},{transform:'scale(1.2)', opacity:1},{transform:'scale(.2)', opacity:0}], {duration:1000 + Math.random()*900});
+      setTimeout(()=> s.remove(), 1300);
     }
-    if(emit > 24) { clearInterval(heartInterval); }
-  }, 120);
+    if(emit>28) clearInterval(interval);
+  }, 140);
 }
 
-/* shooting stars periodically */
+/* shooting stars */
 function spawnShooting(){
   const s = document.createElement('div'); s.className='shoot';
   s.style.left = (5 + Math.random()*80)+'%';
-  s.style.top = (10 + Math.random()*40)+'%';
+  s.style.top = (8 + Math.random()*50)+'%';
   document.getElementById('shoots').appendChild(s);
-  s.style.opacity = '0';
-  s.style.transform = 'rotate(-25deg)';
   s.style.animation = `shoot ${700 + Math.random()*1200}ms linear forwards`;
-  setTimeout(()=> s.remove(), 2000 + Math.random()*1400);
+  setTimeout(()=> s.remove(), 2200);
 }
-setInterval(()=>{ if(Math.random() > 0.45) spawnShooting(); }, 900);
+setInterval(()=>{ if(Math.random()>0.5) spawnShooting(); }, 900);
 
-/* messages sequence */
-const messages = [
-  "Enanga — today the stars blink just a little brighter for you.",
-  "You are my calm, my laughter, the soft place in every day.",
-  "Each little light is a memory — every photo holds a smile I cherish.",
-  "Happy Birthday, my love. I will always choose you."
-];
-let msgIndex = 0;
-const msgEl = document.getElementById('message');
-document.getElementById('nextMsg').addEventListener('click', ()=>{
-  msgIndex = (msgIndex + 1) % messages.length;
-  msgEl.textContent = messages[msgIndex];
-});
-
-/* release control */
-document.getElementById('releaseBtn').addEventListener('click', ()=>{
-  document.getElementById('releaseBtn').disabled = true;
-  release();
-});
+/* message burst when release */
+function burstMessages(){
+  // show a few quick funny lines
+  const quick = [
+    "Enanga 💙 — Even the moon asked for your selfie today!",
+    "Enanga 💙 — Keep your phone; I'm keeping your heart.",
+    "Enanga 💙 — Warning: excessive sweetness ahead. Consume with kisses."
+  ];
+  let i=0;
+  const t = setInterval(()=>{
+    if(i>=quick.length){ clearInterval(t); return; }
+    msgEl.textContent = quick[i++];
+  }, 1000);
+}
 
 /* surprise modal */
 document.getElementById('surpriseBtn').addEventListener('click', ()=> {
@@ -284,24 +295,21 @@ document.getElementById('closeSurprise').addEventListener('click', ()=> {
   document.getElementById('surpriseModal').style.display = 'none';
 });
 
-/* music control */
-const bg = document.getElementById('bgMusic');
-document.getElementById('playMusic').addEventListener('click', ()=>{
-  if(!bg.src){ alert('No music file found. Put a file at music/background.mp3 or remove the music block.'); return; }
-  if(bg.paused){ bg.play().catch(()=>{}); document.getElementById('playMusic').textContent='Pause Music ♪'; }
-  else { bg.pause(); document.getElementById('playMusic').textContent='Play Music ♪'; }
+/* release button */
+document.getElementById('releaseBtn').addEventListener('click', ()=>{
+  document.getElementById('releaseBtn').disabled = true;
+  release();
 });
 
-/* initial load: look for images */
+/* initial load */
 preload(photos, (found)=>{
   found.sort();
   build(found);
-  // also allow clicking background to release
-  document.getElementById('sky').addEventListener('click', (e)=>{ if(e.target.id==='sky'){ document.getElementById('releaseBtn').disabled = true; release(); } });
+  document.getElementById('sky').addEventListener('click', (e)=>{ if(e.target.id==='sky'){ document.getElementById('releaseBtn').disabled = true; release(); }});
 });
 
-/* responsive rebuild on resize */
-window.addEventListener('resize', ()=>{
+/* responsive rebuild */
+window.addEventListener('resize', ()=> {
   const imgs = Array.from(document.querySelectorAll('.lantern img')).map(i=>i.src);
   if(imgs.length) build(imgs);
 });
