@@ -173,13 +173,12 @@
       index++;
       setTimeout(showMessages, 1500);
     } else {
-      // trigger final heart explosion after last message
       setTimeout(finalHeartExplosion, 1000);
     }
   }
   showMessages();
 
-  /* Lantern Images */
+  /* Lantern Images (remaining images 2 to 7) */
   const photos = [
     "image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"
   ];
@@ -227,7 +226,7 @@
     document.body.appendChild(firefly);
   }
 
-  /* Heart Rain for extra magic */
+  /* Heart Rain */
   for(let i=0;i<40;i++){
     let h = document.createElement("div");
     h.classList.add("heart");
@@ -251,7 +250,6 @@
       span.style.position="relative";
       span.style.display="inline-block";
       container.appendChild(span);
-      // floating hearts
       let heartCount = 8;
       for(let j=0;j<heartCount;j++){
         let h = document.createElement("div");
