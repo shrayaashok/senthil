@@ -1,240 +1,284 @@
-<!--
-Senthil's Birthday Website
-File: index.html
-Instructions:
-1) Put your photos in a folder named `images/` next to this file.
-   Name them: photo1.jpg, photo2.jpg, photo3.jpg, photo4.jpg, photo5.jpg, photo6.jpg
-   (You can change filenames in the HTML if you prefer.)
-2) Open this file in a browser to preview. To publish live: deploy the entire folder to Netlify or GitHub Pages.
-3) This single-file site contains all styles and scripts. If you want me to export separate assets or tweak content, tell me.
--->
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Happy Birthday Senthil 💙</title>
-  <style>
-    :root{
-      --bg: #e8f3ff;
-      --blue-1: #3b82f6;
-      --blue-2: #60a5fa;
-      --accent: #09357a;
-      --glass: rgba(255,255,255,0.7);
-      --font-sans: 'Segoe UI', Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;min-height:100vh;font-family:var(--font-sans);background:linear-gradient(180deg,var(--bg),#d7ecff);color:var(--accent);display:flex;align-items:center;justify-content:center;padding:30px;
-      overflow-y:auto;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Enanga — Candle-Light Memories ✨</title>
+<style>
+  :root{
+    --night-1:#031028;
+    --night-2:#071536;
+    --ground:#07122a;
+    --glow:#ffcaa6;
+    --warm:#ffb07a;
+    --accent:#89d4ff;
+    --max-width:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:
+    radial-gradient(1200px 600px at 80% 10%, rgba(138,214,255,0.06), transparent 6%),
+    linear-gradient(180deg,var(--night-1) 0%, var(--night-2) 60%, #001429 100%);
+    color:#e6f0ff; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+  .wrap{max-width:var(--max-width);margin:18px auto;padding:18px}
+  header{display:flex;align-items:center;gap:16px}
+  h1{margin:0;font-size:28px;letter-spacing:0.2px}
+  p.lead{margin:6px 0 0;color:#cfe9ff;opacity:0.95}
 
-    .stage{width:100%;max-width:980px;margin:20px auto}
+  /* Night sky stars */
+  .sky{position:relative;height:62vh;border-radius:12px;overflow:hidden;margin-top:16px;box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+  .stars, .twinkle{position:absolute;inset:0;pointer-events:none}
+  .stars::after{
+    content:"";position:absolute;inset:0;background:
+    radial-gradient(1px 1px at 10% 20%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 30% 40%, #fff 30%, transparent 31%),
+    radial-gradient(1px 1px at 70% 18%, #fff 40%, transparent 41%),
+    radial-gradient(1px 1px at 45% 70%, #fff 40%, transparent 41%),
+    radial-gradient(1px 1px at 82% 62%, #fff 40%, transparent 41%),
+    radial-gradient(1px 1px at 18% 58%, #fff 30%, transparent 31%);
+    opacity:.16; mix-blend-mode:screen;
+  }
+  .twinkle::after{
+    content:"";position:absolute;inset:0;background:
+    radial-gradient(2px 2px at 25% 25%, rgba(255,255,255,0.9) 0%, transparent 40%),
+    radial-gradient(2px 2px at 55% 35%, rgba(255,255,255,0.9) 0%, transparent 40%),
+    radial-gradient(2px 2px at 75% 65%, rgba(255,255,255,0.9) 0%, transparent 40%);
+    opacity:.06; animation:tw 6s linear infinite;
+  }
+  @keyframes tw{0%{opacity:.06}50%{opacity:.18}100%{opacity:.06}}
 
-    /* Top Hero */
-    .hero{background:linear-gradient(135deg,rgba(59,130,246,0.07),rgba(96,165,250,0.06));border-radius:20px;padding:28px;box-shadow:0 8px 30px rgba(13,42,102,0.08);position:relative;overflow:visible}
-    .hero-inner{display:flex;gap:24px;align-items:center}
-    .portrait{width:160px;height:160px;border-radius:20px;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));display:flex;align-items:center;justify-content:center;font-size:28px;color:white;flex:0 0 160px;box-shadow:0 6px 20px rgba(59,130,246,0.18)}
-    .portrait img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+  /* ground silhouette */
+  .ground{
+    position:absolute;left:0;right:0;bottom:0;height:26%;
+    background:linear-gradient(180deg, transparent 0%, rgba(0,10,20,0.12) 40%, var(--ground) 100%);
+    display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;
+    pointer-events:none;
+  }
+  .land{
+    width:100%;max-width:var(--max-width);height:100%;background:
+      linear-gradient(180deg, rgba(2,10,30,0.0) 0%, rgba(2,8,20,0.3) 40%, rgba(2,6,16,1) 100%);
+    border-top-left-radius:28px;border-top-right-radius:28px;box-shadow:inset 0 24px 60px rgba(0,0,0,0.6);
+    display:flex;align-items:flex-end;justify-content:center;position:relative;
+  }
 
-    .greeting{flex:1}
-    .greeting h1{margin:0;font-size:34px;line-height:1;color:var(--accent)}
-    .greeting p{margin:10px 0 18px;color:#0b2b5f;opacity:0.95;font-size:16px}
+  /* Candle lanterns container */
+  .lanterns{position:absolute;left:0;right:0;bottom:10px;height:60%;pointer-events:auto}
 
-    .reveal-btn{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));border:none;color:white;padding:12px 18px;border-radius:12px;font-weight:600;cursor:pointer;box-shadow:0 8px 22px rgba(96,165,250,0.22);transition:transform .18s}
-    .reveal-btn:active{transform:translateY(2px)}
+  /* Single lantern (photo inside a candle-shaped frame) */
+  .lantern{
+    position:absolute;bottom:8px;width:120px;height:160px;border-radius:18px;
+    transform-origin:center bottom;display:flex;flex-direction:column;align-items:center;
+    transition:transform .24s, filter .24s; cursor:pointer;
+  }
+  .lantern .glass{
+    width:86px;height:110px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.02));
+    display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,0.6), inset 0 2px 10px rgba(255,255,255,0.02);
+    border:1px solid rgba(255,255,255,0.04);
+  }
+  .lantern img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(.95) saturate(.98)}
+  /* candle body under photo */
+  .flameholder{width:28px;height:36px;margin-top:8px;border-radius:8px;background:linear-gradient(180deg,#2b1a0f,#20140b);}
+  .candle-glow{position:absolute;left:50%;transform:translateX(-50%);bottom:72px;width:46px;height:46px;border-radius:50%;filter:blur(22px);opacity:0;pointer-events:none}
 
-    /* Polaroid gallery */
-    .gallery{margin-top:22px;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
-    .polaroid{background:white;border-radius:14px;padding:12px 12px 20px;display:flex;flex-direction:column;align-items:center;box-shadow:0 10px 30px rgba(7,45,90,0.08);transform-origin:center;position:relative}
-    .polaroid .photo{width:100%;height:150px;border-radius:8px;background:#ddd;overflow:hidden;display:flex;align-items:center;justify-content:center}
-    .polaroid img{width:100%;height:100%;object-fit:cover;display:block}
-    .cap{margin-top:10px;font-size:13px;color:#18406d}
+  /* warm glow & flame (pseudo) */
+  .lantern .flame{
+    position:absolute;bottom:86px;width:10px;height:14px;border-radius:50%;transform:translateX(-50%);left:50%;
+    background: radial-gradient(circle at 40% 30%, #fff 0%, #ffdca8 12%, #ff9a4d 45%, transparent 60%);
+    box-shadow:0 0 8px rgba(255,160,100,0.6);
+    animation:flame 1200ms infinite;
+  }
+  @keyframes flame{
+    0%{transform:translateX(-50%) translateY(0) scaleY(1)}
+    50%{transform:translateX(-50%) translateY(-6px) scaleY(1.06)}
+    100%{transform:translateX(-50%) translateY(0) scaleY(1)}
+  }
 
-    /* Tilt/rotate variations for polaroids */
-    .polaroid:nth-child(4n){transform:rotate(-4deg)}
-    .polaroid:nth-child(4n+1){transform:rotate(3.5deg)}
-    .polaroid:nth-child(4n+2){transform:rotate(-2deg)}
-    .polaroid:nth-child(4n+3){transform:rotate(2.7deg)}
+  /* rising animation */
+  @keyframes rise {
+    0%{opacity:0; transform:translateY(0) scale(.98) rotate(0deg)}
+    10%{opacity:1}
+    100%{opacity:1; transform:translateY(-110vh) scale(.84) rotate(var(--rotate))}
+  }
 
-    /* Hover lift */
-    .polaroid:hover{transform:translateY(-8px) rotate(0deg) scale(1.02)}
+  /* soft shimmer around lantern */
+  .glow-layer{position:absolute;left:50%;transform:translateX(-50%);bottom:70px;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle, rgba(255,200,150,0.24), rgba(255,160,100,0.06) 40%, transparent 60%);filter:blur(12px);opacity:0.0;transition:opacity .3s}
 
-    /* Message Modal */
-    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(8,22,48,0.35);opacity:0;pointer-events:none;transition:opacity .35s}
-    .modal.open{opacity:1;pointer-events:auto}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.98),var(--glass));border-radius:18px;padding:28px;max-width:720px;box-shadow:0 20px 60px rgba(8,36,90,0.2);text-align:center;position:relative}
-    .card h2{margin:0;font-size:28px;color:var(--accent)}
-    .card .message{margin-top:14px;font-size:17px;color:#072047;line-height:1.5}
-    .close{margin-top:18px;background:#fff;border:1px solid rgba(7,45,90,0.08);padding:10px 14px;border-radius:10px;cursor:pointer}
-
-    /* Hearts animation */
-    .hearts{position:fixed;pointer-events:none;inset:0;overflow:hidden}
-    .heart{position:absolute;width:22px;height:22px;background:linear-gradient(45deg,#ff7bb1,#ff4382);transform:rotate(45deg);border-radius:4px;opacity:0.95}
-    .heart:before,.heart:after{content:'';position:absolute;background:inherit;border-radius:50%}
-    .heart:before{width:22px;height:22px;left:-11px;top:0}
-    .heart:after{width:22px;height:22px;left:0;top:-11px}
-
-    /* Sparkles */
-    .sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle at 30% 30%,white,#cfe7ff);opacity:0.95}
-
-    /* small responsive tweaks */
-    @media (max-width:640px){
-      .hero-inner{flex-direction:column;align-items:flex-start}
-      .portrait{width:120px;height:120px;flex:0 0 120px}
-      .greeting h1{font-size:26px}
-    }
-  </style>
+  /* small responsive */
+  @media (max-width:720px){
+    .lantern{width:92px;height:128px}
+    .lantern .glass{width:64px;height:88px}
+    .lantern .flame{bottom:68px}
+  }
+</style>
 </head>
 <body>
-  <div class="stage">
-    <div class="hero">
-      <div class="hero-inner">
-        <div class="portrait" id="portrait">
-          <!-- Replace with image by dropping in images/photo1.jpg or change src via JS -->
-          <img src="images/photo1.jpg" alt="Senthil" onerror="this.style.display='none'"/>
-        </div>
-        <div class="greeting">
-          <h1>Happy Birthday, <strong>Senthil</strong> 💙</h1>
-          <p id="short-msg">A little digital surprise filled with memories, love and tiny magic — just for you.</p>
-          <div>
-            <button class="reveal-btn" id="openBtn">Open your surprise ✨</button>
-          </div>
-        </div>
-      </div>
+  <div class="wrap">
+    <header>
+      <h1>Enanga — Candle-Light Memories</h1>
+      <p class="lead">Click a glowing candle to open your photo. Tap "Release Candles" to start the ascent.</p>
+      <button id="release" style="margin-left:auto;padding:8px 12px;border-radius:10px;border:none;background:linear-gradient(90deg,#ffc89a,#ff7aa2);cursor:pointer;font-weight:700;color:#2b1222">Release Candles ✨</button>
+    </header>
 
-      <div class="gallery" id="gallery">
-        <!-- Polaroid items (images/photo2..photo6). Replace or add more in images/ folder -->
-        <div class="polaroid"><div class="photo"><img src="images/photo2.jpg" alt="photo"></div><div class="cap">Us laughing</div></div>
-        <div class="polaroid"><div class="photo"><img src="images/photo3.jpg" alt="photo"></div><div class="cap">A cosy day</div></div>
-        <div class="polaroid"><div class="photo"><img src="images/photo4.jpg" alt="photo"></div><div class="cap">That trip</div></div>
-        <div class="polaroid"><div class="photo"><img src="images/photo5.jpg" alt="photo"></div><div class="cap">Candle night</div></div>
-        <div class="polaroid"><div class="photo"><img src="images/photo6.jpg" alt="photo"></div><div class="cap">Memories</div></div>
-        <div class="polaroid"><div class="photo"><img src="images/photo7.jpg" alt="photo"></div><div class="cap">More smiles</div></div>
+    <section class="sky" id="sky">
+      <div class="stars"></div>
+      <div class="twinkle"></div>
+
+      <!-- lanterns will be injected here -->
+      <div class="lanterns" id="lanterns"></div>
+
+      <div class="ground">
+        <div class="land">
+          <!-- hand-drawn hills / silhouette -->
+          <svg viewBox="0 0 1200 160" preserveAspectRatio="none" style="position:absolute;bottom:0;left:0;width:100%;height:100%;">
+            <path d="M0,120 C120,80 240,140 360,100 C480,60 600,120 720,90 C840,60 960,120 1080,92 C1100,88 1200,80 1200,80 L1200,160 L0,160 Z" fill="rgba(3,8,20,0.9)"></path>
+          </svg>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
 
-  <!-- modal message -->
-  <div class="modal" id="modal">
-    <div class="card">
-      <h2>For Senthil, with all my heart 💙</h2>
-      <div class="message" id="message">
-        <!-- Romantic message injected by JS -->
-      </div>
-      <button class="close" id="closeBtn">Close</button>
-    </div>
-  </div>
+<script>
+/*
+ - Reads images/photo1.jpg ... photo12.jpg that exist.
+ - Creates lantern elements and places them along the bottom with some horizontal spread.
+ - On release: each lantern gets an animation (rise) with staggered delay so they ascend one by one.
+ - Click a lantern to open the image overlay.
+*/
 
-  <!-- animated hearts container -->
-  <div class="hearts" id="hearts"></div>
+const lanternsEl = document.getElementById('lanterns');
+const releaseBtn = document.getElementById('release');
 
-  <script>
-    // --- Romantic message (customized) ---
-    const romanticMessage = `
-      Happy Birthday, Senthil —
-      Every day with you feels like a warm sunrise: gentle, bright and full of promise.
-      You laugh like the world is made of small, perfect moments, and you hold my heart with care I never knew I needed.
-      Today I celebrate you — your kindness, your smile, your quiet strength — and every little thing that makes you, you.
-      I love you more than words can say. Here’s to more memories, secret smiles, and late-night talks.
-      Always yours. 💙
+const MAX_PHOTOS = 12; // will attempt to load up to this many photoN.jpg
+const photos = [];
+for(let i=1;i<=MAX_PHOTOS;i++){
+  photos.push(`images/photo${i}.jpg`);
+}
+
+// Helper: check existence by attempting to load (graceful fallback)
+function preloadImages(list, cb){
+  let loaded = 0;
+  const existing = [];
+  list.forEach((url, idx)=>{
+    const img = new Image();
+    img.onload = ()=>{ existing.push(url); loaded++; if(loaded===list.length) cb(existing); };
+    img.onerror = ()=>{ loaded++; if(loaded===list.length) cb(existing); };
+    img.src = url;
+  });
+}
+
+// Build lantern DOM for each found image
+function buildLanterns(imageList){
+  lanternsEl.innerHTML = '';
+  if(imageList.length===0){
+    lanternsEl.innerHTML = `<div style="position:absolute;left:50%;transform:translateX(-50%);bottom:40px;color:#cfe9ff;padding:10px;background:rgba(0,0,0,0.18);border-radius:8px">No images found. Add photo1.jpg ... photo6.jpg inside images/</div>`;
+    return;
+  }
+
+  const count = imageList.length;
+  const spacing = Math.min(120, Math.max(80, Math.floor(window.innerWidth / (count + 1))));
+
+  imageList.forEach((src, idx)=>{
+    const el = document.createElement('div');
+    el.className = 'lantern';
+    // horizontal position: spread across center area with small random offset
+    const leftPct = 8 + (idx/(count-1 || 1))*84; // 8% to 92%
+    const jitter = (Math.random()*10)-5;
+    el.style.left = `calc(${leftPct}% + ${jitter}px)`;
+
+    // small random rotate for natural look, stored in CSS variable
+    const rot = (Math.random()*12 - 6).toFixed(2) + 'deg';
+    el.style.setProperty('--rotate', rot);
+
+    // shape
+    el.innerHTML = `
+      <div class="glow-layer" aria-hidden="true"></div>
+      <div class="glass"><img src="${src}" alt="memory"></div>
+      <div class="flame" aria-hidden="true"></div>
+      <div class="flameholder" aria-hidden="true"></div>
     `;
+    // pointer events: clicking opens overlay
+    el.addEventListener('click', (e)=>{ e.stopPropagation(); openOverlay(src); });
 
-    // DOM hooks
-    const modal = document.getElementById('modal');
-    const openBtn = document.getElementById('openBtn');
-    const closeBtn = document.getElementById('closeBtn');
-    const messageEl = document.getElementById('message');
+    lanternsEl.appendChild(el);
 
-    messageEl.textContent = romanticMessage;
+    // small floating shimmer while waiting
+    const glow = el.querySelector('.glow-layer');
+    setTimeout(()=>{ glow.style.opacity = 1; }, 180 + idx*80);
+  });
+}
 
-    openBtn.addEventListener('click', ()=>{
-      modal.classList.add('open');
-      launchHearts();
-      launchSparkles();
-      gentleShakePortrait();
-    });
-    closeBtn.addEventListener('click', ()=>{
-      modal.classList.remove('open');
-      removeAnimatedElements();
-    });
+// Start the rise animation with staggered delays
+function releaseLanterns(){
+  const nodes = Array.from(document.querySelectorAll('.lantern'));
+  if(!nodes.length) return;
+  nodes.forEach((n, i)=>{
+    // set animation duration and delays: longer duration for higher floating
+    const duration = 9000 + Math.random()*7000; // 9-16s
+    const delay = i * 700 + Math.random()*300; // staggered
+    // random rotation for final (set as CSS var; rise keyframe uses --rotate)
+    const finalRotate = (Math.random()*40 - 20).toFixed(2) + 'deg';
+    n.style.setProperty('--rotate', finalRotate);
+    // show soft glow
+    const glow = n.querySelector('.glow-layer');
+    glow.style.opacity = 0.9;
+    glow.animate([{opacity:0.9, transform:'scale(1)'},{opacity:0.15, transform:'scale(1.6)'}], {duration:duration, fill:'forwards'});
 
-    // create floating hearts
-    const heartsContainer = document.getElementById('hearts');
-    let heartInterval;
-    function launchHearts(){
-      heartInterval = setInterval(()=>{
-        const h = document.createElement('div');
-        h.className = 'heart';
-        const size = 12 + Math.random()*22;
-        h.style.width = h.style.height = size + 'px';
-        h.style.left = Math.random()*100 + '%';
-        h.style.bottom = '-30px';
-        h.style.opacity = 0.95 - Math.random()*0.3;
-        h.style.transform = `rotate(${Math.random()*40 - 20}deg)`;
-        heartsContainer.appendChild(h);
-        const rise = 3500 + Math.random()*3000;
-        h.animate([
-          {transform: `translateY(0) scale(1)`, opacity:1, offset:0},
-          {transform: `translateY(-${150 + Math.random()*300}px) scale(.9)`, opacity:0.9, offset:0.6},
-          {transform: `translateY(-${400 + Math.random()*800}px) scale(.6)`, opacity:0, offset:1}
-        ],{duration:rise, easing:'cubic-bezier(.2,.8,.2,1)'});
-        setTimeout(()=>{ h.remove(); }, rise+100);
-      }, 220);
-    }
-    function launchSparkles(){
-      for(let i=0;i<18;i++){
-        const s = document.createElement('div');
-        s.className='sparkle';
-        s.style.left = Math.random()*80 + '%';
-        s.style.top = Math.random()*60 + '%';
-        s.style.opacity = 0.9;
-        s.style.transform = 'scale(0)';
-        heartsContainer.appendChild(s);
-        s.animate([{transform:'scale(0)', opacity:0},{transform:'scale(1.1)', opacity:1},{transform:'scale(0.2)',opacity:0}],{duration:1200 + Math.random()*900, delay: Math.random()*400});
-        setTimeout(()=>s.remove(),2600);
-      }
-    }
-    function gentleShakePortrait(){
-      const p = document.getElementById('portrait');
-      p.animate([
-        {transform:'translateY(0) rotate(0deg)'},
-        {transform:'translateY(-6px) rotate(-2deg)'},
-        {transform:'translateY(0) rotate(1deg)'}
-      ],{duration:750, iterations:3, easing:'ease-out'});
-    }
-    function removeAnimatedElements(){
-      clearInterval(heartInterval);
-      // remove any leftover hearts/sparkles quickly
-      document.querySelectorAll('.heart, .sparkle').forEach(n=>n.remove());
-    }
+    // animate the lantern up using the rise keyframes
+    n.style.animation = `rise ${duration}ms linear ${delay}ms forwards`;
+    // subtle horizontal sway during ascent — create separate animation
+    const sway = n.animate([
+      { transform: `translateY(0) rotate(0deg)` },
+      { transform: `translateY(-20vh) rotate(${(Math.random()*12-6).toFixed(2)}deg)` },
+      { transform: `translateY(-40vh) rotate(${(Math.random()*-12+6).toFixed(2)}deg)` },
+      { transform: `translateY(-110vh) rotate(var(--rotate))` }
+    ], { duration: duration + 300, delay: delay, fill:'forwards', easing:'linear' });
 
-    // Small touch: clicking a polaroid opens a full-size overlay
-    document.getElementById('gallery').addEventListener('click',(e)=>{
-      const img = e.target.closest('.polaroid')?.querySelector('img');
-      if(!img) return;
-      openImageOverlay(img.src, img.alt||'photo');
-    });
+    // fade flame as it goes high
+    const flame = n.querySelector('.flame');
+    flame.animate([{opacity:1, transform:'translateY(0)'},{opacity:0, transform:'translateY(-30px) scale(.9)'}],{duration:duration, delay:delay, fill:'forwards'});
+    // remove from DOM after animation completes to keep page clean
+    setTimeout(()=>{ try{ n.remove(); }catch(e){} }, duration + delay + 300);
+  });
+}
 
-    function openImageOverlay(src, alt){
-      const overlay = document.createElement('div');
-      overlay.style.position='fixed';overlay.style.inset=0;overlay.style.display='flex';overlay.style.alignItems='center';overlay.style.justifyContent='center';overlay.style.background='rgba(6,18,40,0.6)';overlay.style.zIndex=9999;
-      const big = document.createElement('img');big.src=src;big.alt=alt;big.style.maxWidth='92%';big.style.maxHeight='92%';big.style.borderRadius='10px';big.style.boxShadow='0 28px 60px rgba(3,22,66,0.6)';
-      overlay.appendChild(big);
-      overlay.addEventListener('click',()=>overlay.remove());
-      document.body.appendChild(overlay);
-    }
+// overlay large view
+function openOverlay(src){
+  const overlay = document.createElement('div');
+  overlay.style.position='fixed'; overlay.style.inset=0; overlay.style.background='rgba(2,8,20,0.85)';
+  overlay.style.display='flex'; overlay.style.alignItems='center'; overlay.style.justifyContent='center'; overlay.style.zIndex=9999;
+  overlay.style.cursor='zoom-out';
+  const img = document.createElement('img'); img.src = src; img.style.maxWidth = '92%'; img.style.maxHeight='92%'; img.style.borderRadius='12px'; img.style.boxShadow='0 40px 120px rgba(0,0,0,0.9)';
+  overlay.appendChild(img);
+  overlay.addEventListener('click', ()=> overlay.remove());
+  document.body.appendChild(overlay);
+}
 
-    // Accessibility: allow Esc to close modal
-    window.addEventListener('keydown',(e)=>{ if(e.key==='Escape') { modal.classList.remove('open'); removeAnimatedElements(); } });
+// Preload existing images and build lanterns
+preloadImages(photos, (existing)=>{
+  // sort by name so photo1,... order is preserved
+  existing.sort();
+  buildLanterns(existing);
+});
 
-    // If images are missing, optionally show initials in portrait
-    document.querySelectorAll('.portrait img').forEach(img=>{
-      img.addEventListener('error', ()=>{
-        const p = img.parentElement; img.remove(); p.textContent = 'S'; p.style.fontSize='44px'; p.style.fontWeight='700';
-      });
-    });
-  </script>
+// release button
+releaseBtn.addEventListener('click', ()=>{
+  releaseBtn.disabled = true;
+  releaseLanterns();
+});
+
+// clicking background also releases
+document.getElementById('sky').addEventListener('click', (e)=>{
+  if(e.target.id === 'sky') {
+    releaseBtn.disabled = true;
+    releaseLanterns();
+  }
+});
+
+// responsive rebuild on resize (keeps spread nice)
+window.addEventListener('resize', ()=> {
+  // simply re-run build with currently-known images
+  const imgs = Array.from(document.querySelectorAll('.lantern img')).map(i=>i.src);
+  if(imgs.length) buildLanterns(imgs);
+});
+</script>
 </body>
 </html>
