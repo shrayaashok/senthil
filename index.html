@@ -2,98 +2,142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>ENANGA 💙 HAPPY BIRTHDAY </title>
-
+<title>Happy Birthday Enanga 💙</title>
 <style>
-    body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
-        background: linear-gradient(#001233, #000814);
-        color: white;
-        text-align: center;
-    }
+  body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(#001233, #000814);
+    color: white;
+    text-align: center;
+  }
 
-    h1 {
-        margin-top: 40px;
-        font-size: 40px;
-        font-weight: 700;
-        color: #7dc9ff;
-        text-shadow: 0 0 10px #6ec8ff, 0 0 20px #3da9fc;
-    }
+  h1 {
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 700;
+    color: #7dc9ff;
+    text-shadow: 0 0 20px #6ec8ff, 0 0 30px #3da9fc;
+    padding: 10px;
+    border: 4px solid #5ab3ff;
+    border-radius: 15px;
+    display: inline-block;
+    animation: glowBorder 2s ease-in-out infinite alternate;
+  }
 
-    .messages {
-        margin-top: 20px;
-        font-size: 20px;
-        line-height: 1.7;
-        animation: fadeIn 2s ease-in-out;
-    }
+  @keyframes glowBorder {
+    0% { box-shadow: 0 0 15px #5ab3ff, 0 0 25px #3da9fc; }
+    100% { box-shadow: 0 0 25px #7dc9ff, 0 0 40px #6ec8ff; }
+  }
 
-    /* Floating Lanterns */
-    .lantern {
-        width: 140px;
-        height: 200px;
-        position: absolute;
-        bottom: -200px;
-        animation: floatUp 12s linear infinite;
-        background-size: cover;
-        background-position: center;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0,170,255,0.7);
-        border: 3px solid rgba(150,220,255,0.6);
-    }
+  .messages {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.7;
+    animation: fadeIn 2s ease-in-out;
+  }
 
-    @keyframes floatUp {
-        0% { transform: translateY(0) scale(1); opacity: 0.6; }
-        100% { transform: translateY(-900px) scale(1.1); opacity: 1; }
-    }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+  .lantern {
+    width: 140px;
+    height: 200px;
+    position: absolute;
+    bottom: -200px;
+    animation: floatUp 12s linear infinite;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,170,255,0.7);
+    border: 3px solid rgba(150,220,255,0.6);
+  }
 
-    /* Shooting Stars */
-    .star {
-        position: absolute;
-        width: 3px;
-        height: 90px;
-        background: linear-gradient(white, transparent);
-        opacity: 0.8;
-        transform: rotate(-45deg);
-        animation: shoot 3s linear infinite;
-    }
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 0.6; }
+    100% { transform: translateY(-900px) scale(1.1); opacity: 1; }
+  }
 
-    @keyframes shoot {
-        0% { opacity: 1; transform: translate(-100px, -100px) rotate(-45deg); }
-        100% { opacity: 0; transform: translate(700px, 700px) rotate(-45deg); }
-    }
+  .star {
+    position: absolute;
+    width: 3px;
+    height: 90px;
+    background: linear-gradient(white, transparent);
+    opacity: 0.8;
+    transform: rotate(-45deg);
+    animation: shoot 3s linear infinite;
+  }
 
-    /* Floating Hearts */
-    .heart {
-        position: absolute;
-        font-size: 22px;
-        animation: floatHeart 6s linear infinite;
-        opacity: 0.8;
-    }
+  @keyframes shoot {
+    0% { opacity: 1; transform: translate(-100px, -100px) rotate(-45deg); }
+    100% { opacity: 0; transform: translate(700px, 700px) rotate(-45deg); }
+  }
 
-    @keyframes floatHeart {
-        0% { transform: translateY(0) scale(1); opacity: 0.8; }
-        100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
-    }
+  .heart {
+    position: absolute;
+    font-size: 22px;
+    animation: floatHeart 6s linear infinite;
+    opacity: 0.8;
+  }
 
-    /* Ending text */
-    .ending {
-        margin-top: 80px;
-        font-size: 18px;
-        color: #8dd0ff;
-        text-shadow: 0 0 6px #5ab3ff;
-        opacity: 0;
-        animation: fadeIn 3s ease-in-out forwards;
-        animation-delay: 8s;
-    }
+  @keyframes floatHeart {
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
+  }
+
+  .firefly {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: yellow;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: blink 3s infinite alternate;
+  }
+
+  @keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .moon {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #a3d2ff, #001233);
+    border-radius: 50%;
+    box-shadow: 0 0 40px #5ab3ff;
+  }
+
+  .ending {
+    margin-top: 80px;
+    font-size: 18px;
+    color: #8dd0ff;
+    text-shadow: 0 0 6px #5ab3ff;
+    opacity: 0;
+    animation: fadeIn 3s ease-in-out forwards;
+    animation-delay: 8s;
+  }
+
+  /* Heart explosion final message */
+  #finalLove {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff5ea2;
+    text-shadow: 0 0 20px #ff9ad1, 0 0 40px #ff5ea2;
+    opacity: 0;
+  }
 </style>
-
 </head>
 <body>
 
@@ -101,80 +145,127 @@
 
 <div class="messages" id="messageBox"></div>
 
-<div class="ending">
-    Made with love… just for you 💙
-</div>
+<div class="ending">Made with love… just for you 💙</div>
+
+<div class="moon"></div>
+<div id="finalLove">I LOVE YOU 💙</div>
 
 <script>
-    /* Funny Messages */
-    const messages = [
+  /* Custom Birthday Messages */
+  const messages = [
     "Enanga 💙 I love you so much ",
     "You are my FRIEND , LOVE , AND EVERYTHING IN CLASS 💙",
     "I fight with you because I expect things💙",
     "But every fight makes me think that you will never leave me 😭💙",
-    "This is a little surprise to you because I don't know what to get you 😌💙",
+    "This is a little surprise to you because i don't know what to get you 😌💙",
     "Enanga 💙 Today we have our NNDL exam , and hope you get O grade and give a comeback on your big day🤭",
     "Just look at all these memories flying in a piece of candles 💙",
     "Same way we are going to reach our success to the height 😭💙",
     "I wish all YOUR dreams to come true💙",
     "And get ready to start another year with me , with all my fights , with all my mood swings and blaa blaa ",
     "Once again wish you HAPPIEST BIRTHDAY today !!!!"
-];
+  ];
 
-
-    let index = 0;
-    function showMessages() {
-        if (index < messages.length) {
-            document.getElementById("messageBox").innerHTML += messages[index] + "<br>";
-            index++;
-            setTimeout(showMessages, 1500);
-        }
+  let index = 0;
+  function showMessages() {
+    if (index < messages.length) {
+      document.getElementById("messageBox").innerHTML += messages[index] + "<br>";
+      index++;
+      setTimeout(showMessages, 1500);
+    } else {
+      // trigger final heart explosion after last message
+      setTimeout(finalHeartExplosion, 1000);
     }
-    showMessages();
+  }
+  showMessages();
 
-    /* Lantern Images */
-    const photos = [
-        "image1.jpg",
-        "image2.jpg",
-        "image3.jpg",
-        "image4.jpg",
-        "image5.jpg",
-        "image6.jpg",
-        "image7.jpg"
-    ];
+  /* Lantern Images */
+  const photos = [
+    "image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg","image6.jpg","image7.jpg"
+  ];
 
-    photos.forEach((img, i) => {
-        let lantern = document.createElement("div");
-        lantern.classList.add("lantern");
-        lantern.style.left = Math.random() * 80 + "%";
-        lantern.style.animationDelay = (i * 2) + "s";
-        lantern.style.backgroundImage = `url('${img}')`;
-        document.body.appendChild(lantern);
-    });
+  photos.forEach((img, i) => {
+    let lantern = document.createElement("div");
+    lantern.classList.add("lantern");
+    lantern.style.left = Math.random() * 80 + "%";
+    lantern.style.animationDelay = (i*2) + "s";
+    lantern.style.backgroundImage = `url('${img}')`;
+    document.body.appendChild(lantern);
+  });
 
-    /* Shooting Stars */
-    for (let i = 0; i < 7; i++) {
-        let star = document.createElement("div");
-        star.classList.add("star");
-        star.style.top = Math.random() * 200 + "px";
-        star.style.left = Math.random() * 400 + "px";
-        star.style.animationDelay = i + "s";
-        document.body.appendChild(star);
+  /* Shooting Stars */
+  for(let i=0;i<7;i++){
+    let star = document.createElement("div");
+    star.classList.add("star");
+    star.style.top = Math.random()*200 + "px";
+    star.style.left = Math.random()*400 + "px";
+    star.style.animationDelay = i+"s";
+    document.body.appendChild(star);
+  }
+
+  /* Floating Hearts */
+  function createHeart(){
+    let heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random()*90 + "%";
+    heart.style.bottom = "-20px";
+    heart.style.animationDuration = (5 + Math.random()*3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  }
+  setInterval(createHeart,700);
+
+  /* Fireflies */
+  for(let i=0;i<25;i++){
+    let firefly = document.createElement("div");
+    firefly.classList.add("firefly");
+    firefly.style.top = Math.random()*window.innerHeight+"px";
+    firefly.style.left = Math.random()*window.innerWidth+"px";
+    firefly.style.animationDelay = Math.random()*3 + "s";
+    firefly.style.width = firefly.style.height = (3+Math.random()*4)+"px";
+    document.body.appendChild(firefly);
+  }
+
+  /* Heart Rain for extra magic */
+  for(let i=0;i<40;i++){
+    let h = document.createElement("div");
+    h.classList.add("heart");
+    h.innerHTML = "💙";
+    h.style.left = Math.random()*100 + "%";
+    h.style.top = Math.random()*-800 + "px";
+    h.style.fontSize = (15 + Math.random()*20) + "px";
+    h.style.animationDuration = (5 + Math.random()*5)+"s";
+    document.body.appendChild(h);
+  }
+
+  /* Final Heart Explosion forming I LOVE YOU */
+  function finalHeartExplosion(){
+    const container = document.getElementById("finalLove");
+    container.style.opacity = 1;
+    const text = container.innerText;
+    container.innerText = "";
+    for(let i=0;i<text.length;i++){
+      let span = document.createElement("span");
+      span.innerText = text[i];
+      span.style.position="relative";
+      span.style.display="inline-block";
+      container.appendChild(span);
+      // floating hearts
+      let heartCount = 8;
+      for(let j=0;j<heartCount;j++){
+        let h = document.createElement("div");
+        h.classList.add("heart");
+        h.innerText = "💙";
+        h.style.left = Math.random()*20 - 10 + "px";
+        h.style.top = Math.random()*20 - 10 + "px";
+        h.style.fontSize = (15 + Math.random()*15)+"px";
+        span.appendChild(h);
+        setTimeout(()=>h.remove(),4000);
+      }
     }
+  }
 
-    /* Floating Blue Hearts */
-    function createHeart() {
-        let heart = document.createElement("div");
-        heart.classList.add("heart");
-        heart.innerHTML = "💙";
-        heart.style.left = Math.random() * 90 + "%";
-        heart.style.bottom = "-20px";
-        heart.style.animationDuration = (5 + Math.random() * 3) + "s";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 6000);
-    }
-    setInterval(createHeart, 700);
 </script>
 
 </body>
